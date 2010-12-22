@@ -20,7 +20,7 @@
           <p id="slogan"><?php print $site_slogan; ?></p>
         </div><!-- navigation -->
         <div id="nav">
-          <?php print theme('links', $primary_links, array('class' => 'links primary-links')); ?>
+          <?php print theme('links', $main_menu, array('class' => 'links primary-links')); ?>
         </div>
         <?php print $search_box; ?>
       </div>
@@ -100,7 +100,7 @@
           <?php endif; ?>
   
           <?php if ($secondary_links): ?>
-          <?php print theme('links', $secondary_links, array('class' => 'links secondary-links')); ?>
+          <?php print theme('links', $secondary_menu, array('class' => 'links secondary-links')); ?>
           <?php endif; ?>
         </div>
 
