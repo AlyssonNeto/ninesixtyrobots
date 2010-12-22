@@ -28,7 +28,7 @@
     <?php if (!empty($messages)): print $messages; endif; ?>
     <?php if (!empty($help)): print $help; endif; ?>
     <div id="content-output"> 
-      <?php print $page['content']; ?>
+      <?php print render($page['content']); ?>
     </div><!-- /#content-output -->
   </div>
   <!-- main ends here -->
@@ -40,7 +40,7 @@
     <!-- left sidebar starts here -->
     <?php if ($page['left']): ?>
     <div class="grid_4 alpha sidebar-left">
-      <?php print $page['left']; ?>
+      <?php print render($page['left']); ?>
     </div>
     <?php endif; ?>
     <!-- left sidebar ends here -->
@@ -48,7 +48,7 @@
     <!-- right sidebar starts here -->
     <?php if ($page['right']): ?>
     <div class="grid_4 omega sidebar-right">
-      <?php print $page['right']; ?>
+      <?php print render($page['right']); ?>
     </div>
     <?php endif; ?>
     <!-- right sidebar ends here -->
@@ -68,13 +68,13 @@
 
     <!-- footer left starts here -->
     <div class="grid_8" id="footer-left">
-      <?php print $page['footer_left']; ?>
+      <?php print render($page['footer_left']); ?>
     </div>
     <!-- footer left ends here -->
 
     <!-- footer right starts here -->
     <div class="grid_8" id="footer-right">
-      <?php print $page['footer_right']; ?>
+      <?php print render($page['footer_right']); ?>
     </div>
     <!-- footer right ends here -->
 
@@ -95,7 +95,7 @@
 
     <?php if ($page['footer']): ?>
     <div id="footer-bottom-content">
-      <?php print $page['footer']; ?>
+      <?php print render($page['footer']); ?>
     </div>
     <?php endif; ?>
   </div>
