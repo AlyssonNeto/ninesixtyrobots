@@ -22,33 +22,33 @@
   <div id="breadcrumb" class="grid_16"><?php print $breadcrumb; ?></div>
 
   <!-- main -->
-  <div id="main" class="<?php print ($left && $right) ? 'grid_8' : (($left || $right) ? 'grid_12' : 'grid_16') ?>">
+  <div id="main" class="<?php print ($page['left'] && $page['right']) ? 'grid_8' : (($page['left'] || $page['right']) ? 'grid_12' : 'grid_16') ?>">
     <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
     <?php if (!empty($tabs)): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
     <?php if (!empty($messages)): print $messages; endif; ?>
     <?php if (!empty($help)): print $help; endif; ?>
     <div id="content-output"> 
-      <?php print $content; ?>
+      <?php print $page['content']; ?>
     </div><!-- /#content-output -->
   </div>
   <!-- main ends here -->
 
   <!-- sidebars starts here -->
-  <?php if ($left || $right): ?>
-  <div id="sidebars" class="<?php print ($left && $right) ? 'grid_8' : 'grid_4' ?>">
+  <?php if ($page['left'] || $page['right']): ?>
+  <div id="sidebars" class="<?php print ($page['left'] && $page['right']) ? 'grid_8' : 'grid_4' ?>">
 
     <!-- left sidebar starts here -->
-    <?php if ($left): ?>
+    <?php if ($page['left']): ?>
     <div class="grid_4 alpha sidebar-left">
-      <?php print $left; ?>
+      <?php print $page['left']; ?>
     </div>
     <?php endif; ?>
     <!-- left sidebar ends here -->
 
     <!-- right sidebar starts here -->
-    <?php if ($right): ?>
+    <?php if ($page['right']): ?>
     <div class="grid_4 omega sidebar-right">
-      <?php print $right; ?>
+      <?php print $page['right']; ?>
     </div>
     <?php endif; ?>
     <!-- right sidebar ends here -->
@@ -68,13 +68,13 @@
 
     <!-- footer left starts here -->
     <div class="grid_8" id="footer-left">
-      <?php print $footer_left; ?>
+      <?php print $page['footer_left']; ?>
     </div>
     <!-- footer left ends here -->
 
     <!-- footer right starts here -->
     <div class="grid_8" id="footer-right">
-      <?php print $footer_right; ?>
+      <?php print $page['footer_right']; ?>
     </div>
     <!-- footer right ends here -->
 
@@ -93,9 +93,9 @@
       <?php endif; ?>
     </div>
 
-    <?php if ($footer): ?>
+    <?php if ($page['footer']): ?>
     <div id="footer-bottom-content">
-      <?php print $footer; ?>
+      <?php print $page['footer']; ?>
     </div>
     <?php endif; ?>
   </div>
