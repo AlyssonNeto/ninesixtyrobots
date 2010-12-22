@@ -103,4 +103,3 @@
 
 </div>
 <!-- footer ends here -->
-<?php print $closure; ?>
