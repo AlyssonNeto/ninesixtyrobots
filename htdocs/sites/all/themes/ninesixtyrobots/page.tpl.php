@@ -88,7 +88,7 @@
       <p class="bottom-left"><?php print $footer_message; ?></p>
       <?php endif; ?>
 
-      <?php if ($secondary_links): ?>
+      <?php if ($secondary_menu): ?>
       <?php print theme('links', $secondary_menu, array('class' => 'links secondary-links')); ?>
       <?php endif; ?>
     </div>
