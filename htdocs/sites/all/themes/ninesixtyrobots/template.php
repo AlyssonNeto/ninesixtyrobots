@@ -8,7 +8,7 @@ function ninesixtyrobots_theme() {
   return array(
     // Add our own function to override the default node form for story.
     'story_node_form' => array(
-      'arguments' => array('form' => NULL),
+      'variables' => array('form' => NULL),
     ),
   );
 }
