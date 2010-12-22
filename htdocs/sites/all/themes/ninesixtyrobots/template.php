@@ -57,7 +57,7 @@ function ninesixtyrobots_preprocess_page(&$vars) {
       if (is_null($query)) {
         $query = 'lullabot';
       }
-      $query = drupal_urlencode($query);
+      $query = drupal_encode_path($query);
 
       $response = drupal_http_request('http://search.twitter.com/search.json?q=' . $query);
       if ($response->code == 200) {
