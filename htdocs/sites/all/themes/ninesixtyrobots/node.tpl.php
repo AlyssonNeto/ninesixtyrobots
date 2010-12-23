@@ -65,8 +65,8 @@
     </div>
   <?php endif; ?>
 
-  <?php if ($terms): ?>
-    <div class="terms terms-inline"><?php print $terms ?></div>
+  <?php if ($content['field_tags']): ?>
+    <div class="terms terms-inline"><?php print render($content['field_tags']); ?></div>
   <?php endif;?>
 
   </div>

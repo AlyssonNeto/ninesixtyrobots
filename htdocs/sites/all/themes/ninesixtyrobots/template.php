@@ -39,6 +39,9 @@ function ninesixtyrobots_preprocess_node(&$vars) {
   // Add an additional wrapper around the links.
   $vars['content']['links']['#prefix'] = '<div class="postinfo">';
   $vars['content']['links']['#suffix'] = '</div>';
+
+  // Change the theme function used for rendering the list of tags.
+  $vars['content']['field_tags']['#theme'] = 'links';
 }
 
 /**
