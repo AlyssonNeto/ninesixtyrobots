@@ -9,9 +9,10 @@
       <p id="slogan"><?php print $site_slogan; ?></p>
     </div><!-- navigation -->
     <div id="nav">
-      <?php print theme('links', $main_menu, array('class' => 'links primary-links')); ?>
+      <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix', 'primary-links')))); ?>
     </div>
   </div>
+  <?php print render($page['header']); ?>
 </div>
 <!-- header ends here -->
 
