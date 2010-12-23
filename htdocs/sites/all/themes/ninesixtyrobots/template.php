@@ -29,6 +29,9 @@ function ninesixtyrobots_story_node_form($form) {
  * Add custom PHPTemplate variables into the node template.
  */
 function ninesixtyrobots_preprocess_node(&$vars) {
+  // Add the .post class to all nodes.
+  $vars['classes_array'][] = 'post';
+
   // Grab the node object.
   $node = $vars['node'];
   // Make individual variables for the parts of the date.
