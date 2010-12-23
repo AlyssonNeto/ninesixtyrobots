@@ -23,13 +23,19 @@
 
   <!-- main -->
   <div id="main" class="<?php print ($page['left'] && $page['right']) ? 'grid_8' : (($page['left'] || $page['right']) ? 'grid_12' : 'grid_16') ?>">
-    <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
-    <?php if (!empty($tabs)): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
-    <?php if (!empty($messages)): print $messages; endif; ?>
-    <?php if (!empty($help)): print $help; endif; ?>
-    <div id="content-output"> 
-      <?php print render($page['content']); ?>
-    </div><!-- /#content-output -->
+    <a id="main-content"></a>
+    <?php print render($title_prefix); ?>
+    <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+    <?php print render($title_suffix); ?>
+    <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+    <?php print render($page['help']); ?>
+    <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+
+      <div id="content-output"> 
+        <?php print render($page['content']); ?>
+      </div><!-- /#content-output -->
+
+    <?php print $feed_icons; ?>
   </div>
   <!-- main ends here -->
 

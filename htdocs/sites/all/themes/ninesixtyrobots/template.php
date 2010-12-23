@@ -48,6 +48,9 @@ function ninesixtyrobots_preprocess_node(&$vars) {
  * Add custom PHPTemplate variable into the page template
  */
 function ninesixtyrobots_preprocess_page(&$vars) {
+  // Create a $footer_message variable.
+  $vars['footer_message'] = t('Lullabot loves you.');
+
   // Check if the theme is using Twitter.
   $use_twitter = theme_get_setting('use_twitter');
   if (is_null($use_twitter)) {
