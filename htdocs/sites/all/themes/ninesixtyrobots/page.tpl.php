@@ -11,7 +11,6 @@
     <div id="nav">
       <?php print theme('links', $main_menu, array('class' => 'links primary-links')); ?>
     </div>
-    <?php print $search_box; ?>
   </div>
 </div>
 <!-- header ends here -->
