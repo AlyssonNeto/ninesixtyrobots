@@ -80,7 +80,10 @@
     ?>
   </div>
 
-  <?php print render($content['links']); ?>
+  <?php $links = render($content['links']); ?>
+  <?php if ($links): ?>
+    <div class="postmeta"><?php print $links; ?></div>
+  <?php endif; ?>
 
   <?php print render($content['comments']); ?>
 

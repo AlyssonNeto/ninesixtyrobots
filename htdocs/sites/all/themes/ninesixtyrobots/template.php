@@ -38,11 +38,7 @@ function ninesixtyrobots_preprocess_node(&$vars) {
   $vars['date_day'] = format_date($node->created, 'custom', 'j');
   $vars['date_month'] = format_date($node->created, 'custom', 'M');
   $vars['date_year'] = format_date($node->created, 'custom', 'Y');
-
-  // Add an additional wrapper around the links.
-  $vars['content']['links']['#prefix'] = '<div class="postmeta">';
-  $vars['content']['links']['#suffix'] = '</div>';
-
+  
   // Change the theme function used for rendering the list of tags.
   $vars['content']['field_tags']['#theme'] = 'links';
 }
