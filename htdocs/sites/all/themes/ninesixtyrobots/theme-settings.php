@@ -5,13 +5,6 @@
  * Implements hook_form_FORM_ID_alter().
  */
 function ninesixtyrobots_form_system_theme_settings_alter(&$form, $form_state) {
-  $defaults = array(
-    'breadcrumb_delimiter' => ' » ',
-    'use_twitter' => 1,
-    'twitter_search_term' => 'lullabot',
-  );
-  $settings = array_merge($defaults, $saved_settings);
-  
   $form['breadcrumb_delimiter'] = array(
     '#type' => 'textfield',
     '#title' => t('Breadcrumb delimiter'),
