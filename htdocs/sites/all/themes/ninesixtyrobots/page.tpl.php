@@ -96,7 +96,7 @@
       <?php endif; ?>
 
       <?php if ($secondary_menu): ?>
-      <?php print theme('links', $secondary_menu, array('class' => 'links secondary-links')); ?>
+      <?php print theme('links__system_secondary_menu', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary-menu', 'class' => array('links', 'inline', 'clearfix')))); ?>
       <?php endif; ?>
     </div>
 

@@ -702,7 +702,8 @@ div.dateblock span.year {
   float: left;
   padding-left: 5px;
 }
-#footer-bottom .secondary-links {
+#footer-bottom #secondary-menu {
+  float: right;
   text-align: right;
   padding: 10px 0;
 }
@@ -737,6 +738,10 @@ div.dateblock span.year {
 .post-info a, .post-info a:visited {
   color: #000;
   border: none;
+}
+
+.terms a {
+  margin-right: 10px;
 }
 
 /* Comments */

@@ -66,7 +66,7 @@
   <?php endif; ?>
 
   <?php if ($content['field_tags']): ?>
-    | Filed under: <div class="terms terms-inline"><?php print render($content['field_tags']); ?></div>
+    | Filed under: <span class="terms terms-inline"><?php print render($content['field_tags']); ?></span>
   <?php endif;?>
 
   </div>
