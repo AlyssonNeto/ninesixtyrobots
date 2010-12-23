@@ -120,9 +120,8 @@ function ninesixtyrobots_preprocess_username(&$variables) {
 /**
  * Override the search box to add our pretty graphic instead of the button.
  */
-function ninesixtyrobots_search_theme_form($form) {
-  $form['submit']['#type'] = 'image_button';
-  $form['submit']['#src'] = drupal_get_path('theme', 'ninesixtyrobots') . '/images/search.png';
-  $form['submit']['#attributes']['class'] = 'btn';
-  return '<div id="search" class="container-inline">' . drupal_render($form) . '</div>';
+function ninesixtyrobots_form_search_block_form_alter(&$form, &$form_state) {
+  $form['actions']['submit']['#type'] = 'image_button';
+  $form['actions']['submit']['#src'] = drupal_get_path('theme', 'ninesixtyrobots') . '/images/search.png';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn';
 }
