@@ -48,34 +48,45 @@
  * @see template_preprocess_node()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="node post<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-<?php print $picture ?>
+  <?php print $user_picture; ?>
 
-<?php if (!$page): ?>
-  <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
-<?php endif; ?>
+  <?php print render($title_prefix); ?>
+  <?php if (!$page): ?>
+    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+  <?php endif; ?>
+  <?php print render($title_suffix); ?>
 
   <div class="meta post-info">
-  <?php if ($submitted): ?>
-    <span class="submitted">Posted by <?php print theme('username', $node) ?></span>
+  <?php if ($display_submitted): ?>
+    <span class="submitted">
+      Posted by: <?php print $submitted; ?>
+    </span>
   <?php endif; ?>
 
-  <?php if ($terms): ?>
-    | Filed under: <div class="terms terms-inline"><?php print $terms ?></div>
+  <?php if ($content['field_tags']): ?>
+    | Filed under: <div class="terms terms-inline"><?php print render($content['field_tags']); ?></div>
   <?php endif;?>
+
   </div>
 
-  <div class="content">
+  <div class="content"<?php print $content_attributes; ?>>
     <div class="dateblock">
       <span class="month"><?php print $date_month ?></span>
       <span class="day"><?php print $date_day ?></span>
       <span class="year"><?php print $date_year ?></span>
     </div>
-    <?php print $content ?>
+    <?php
+      // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
+    ?>
   </div>
 
-  <?php if ($links): ?>
-    <div class="postmeta"><?php print $links; ?></div>
-  <?php endif; ?>
+  <?php print render($content['links']); ?>
+
+  <?php print render($content['comments']); ?>
+
 </div>
