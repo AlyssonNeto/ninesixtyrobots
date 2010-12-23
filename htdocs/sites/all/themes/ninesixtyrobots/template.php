@@ -52,9 +52,6 @@ function ninesixtyrobots_preprocess_page(&$vars) {
 
   // Check if the theme is using Twitter.
   $use_twitter = theme_get_setting('use_twitter');
-  if (is_null($use_twitter)) {
-    $use_twitter = 1;
-  }
 
   // If the theme uses Twitter pull it in and display it in the slogan.
   if ($use_twitter) {
@@ -63,9 +60,6 @@ function ninesixtyrobots_preprocess_page(&$vars) {
     }
     else {
       $query = theme_get_setting('twitter_search_term');
-      if (is_null($query)) {
-        $query = 'lullabot';
-      }
       $query = drupal_encode_path($query);
 
       $response = drupal_http_request('http://search.twitter.com/search.json?q=' . $query);
@@ -95,9 +89,6 @@ function ninesixtyrobots_breadcrumb($variables) {
 
     $breadcrumb[] = drupal_get_title();
     $delimiter = theme_get_setting('breadcrumb_delimiter');
-    if (is_null($delimiter)) {
-      $delimiter = ' » ';
-    }
     return '<div class="breadcrumb">'. implode($delimiter, $breadcrumb) .'</div>';
     return $output;
   }

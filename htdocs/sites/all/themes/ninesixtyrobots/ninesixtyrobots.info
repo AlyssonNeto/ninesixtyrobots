@@ -19,3 +19,7 @@ regions[footer] = Footer bottom
 
 scripts[] = js/jquery.autofill.js
 scripts[] = js/javascript.js
+
+settings[breadcrumb_delimiter] = " » "
+settings[use_twitter] = 1
+settings[twitter_search_term] = lullabot
