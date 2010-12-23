@@ -57,7 +57,7 @@
 <?php endif; ?>
 
   <div class="meta post-info">
-  <?php if ($submitted): ?>
+  <?php if ($display_submitted): ?>
     <span class="submitted"><?php print $submitted ?></span>
   <?php endif; ?>
 
