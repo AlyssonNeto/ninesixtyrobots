@@ -35,6 +35,10 @@ function ninesixtyrobots_preprocess_node(&$vars) {
   $vars['date_day'] = format_date($node->created, 'custom', 'j');
   $vars['date_month'] = format_date($node->created, 'custom', 'M');
   $vars['date_year'] = format_date($node->created, 'custom', 'Y');
+
+  // Add an additional wrapper around the links.
+  $vars['content']['links']['#prefix'] = '<div class="postinfo">';
+  $vars['content']['links']['#suffix'] = '</div>';
 }
 
 /**
