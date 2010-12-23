@@ -11,8 +11,8 @@
     <div id="nav">
       <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix', 'primary-links')))); ?>
     </div>
+    <?php print render($page['header']); ?>
   </div>
-  <?php print render($page['header']); ?>
 </div>
 <!-- header ends here -->
 
@@ -24,6 +24,7 @@
   <!-- main -->
   <div id="main" class="<?php print ($page['left'] && $page['right']) ? 'grid_8' : (($page['left'] || $page['right']) ? 'grid_12' : 'grid_16') ?>">
     <a id="main-content"></a>
+    <?php print $messages; ?>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
     <?php print render($title_suffix); ?>
