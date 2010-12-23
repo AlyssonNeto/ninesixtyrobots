@@ -92,55 +92,16 @@ function ninesixtyrobots_breadcrumb($breadcrumb) {
 }
 
 /**
- * Override the username display to automatically swap out username for a 
- * Profile module field called real_name, if it exists.
+ * Preprocess function for theme_username().
  */
-function ninesixtyrobots_username($object) {
-  if ($object->uid && $object->name) {
-    
-    // Check if Profile module is enabled.
-    if (module_exists('profile')) {
-      profile_load_profile($object);
-      // See if it has a real_name field and add that as the name instead.
-      if (!empty($object->profile_real_name)) {
-        $object->name = $object->profile_real_name;
-      }
-    }
-    
-    // Shorten the name when it is too long or it will break many tables.
-    if (drupal_strlen($object->name) > 20) {
-      $name = drupal_substr($object->name, 0, 15) .'...';
-    }
-    else {
-      $name = $object->name;
-    }
+function ninesixtyrobots_preprocess_username(&$variables) {
+  // Ensure that the full user object is loaded.
+  $account = user_load($variables['account']->uid);
 
-    if (user_access('access user profiles')) {
-      $output = l($name, 'user/'. $object->uid, array('attributes' => array('title' => t('View user profile.'))));
-    }
-    else {
-      $output = check_plain($name);
-    }
+  // See if it has a real_name field and add that as the name instead.
+  if (isset($account->field_profile_real_name[LANGUAGE_NONE][0]['safe_value'])) {
+    $variables['name'] = $account->field_profile_real_name[LANGUAGE_NONE][0]['safe_value'];
   }
-  else if ($object->name) {
-    // Sometimes modules display content composed by people who are
-    // not registered members of the site (e.g. mailing list or news
-    // aggregator modules). This clause enables modules to display
-    // the true author of the content.
-    if (!empty($object->homepage)) {
-      $output = l($object->name, $object->homepage, array('attributes' => array('rel' => 'nofollow')));
-    }
-    else {
-      $output = check_plain($object->name);
-    }
-
-    $output .= ' ('. t('not verified') .')';
-  }
-  else {
-    $output = variable_get('anonymous', t('Anonymous'));
-  }
-
-  return $output;
 }
 
 /**
